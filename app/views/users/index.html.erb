@@ -4,9 +4,15 @@
 <div class="col-md-10 col-md-offset-1">
   <!--  検索拡張機能  -->
   <p>ユーザー名検索</p>
-  <%= form_tag(users_path, :method => 'get' ) do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag '検索', :name => nil %>
+    <%= form_tag(users_path, :method => 'get' ) do %>
+      <div class="input-group text-right">
+        <input type="text" class="form-control" placeholder="テキスト入力欄">
+        <span class="input-group-btn">
+          <%= submit_tag '検索', :name => nil, class:"btn btn-primary" %>
+        </span>
+    </div>
+    
+    
   <% end %>
   <%= will_paginate %>
   <table class="table table-condensed table-hover" id="table-users">

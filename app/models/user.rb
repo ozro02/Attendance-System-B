@@ -53,9 +53,9 @@ class User < ApplicationRecord
   # 検索機能を追加
   def self.search(search)
     if search
-      where(['name LIKE ?', "%#{search}%"])
+      User.where(['name LIKE ?', "%#{search}%"])
     else
-      all
+      User.all
     end
   end  
 end
