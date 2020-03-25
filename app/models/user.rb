@@ -51,11 +51,11 @@ class User < ApplicationRecord
   end
   
   # 検索機能を追加
-  def self.search(search)
+  def self.search(search) # ここでのself.はUser.を表す。
     if search
-      User.where(['name LIKE ?', "%#{search}%"])
+      where(['name LIKE ?', "%#{search}%"]) # 検索とnameの部分一致を表示。User.は省略。
     else
-      User.all
+      all
     end
   end  
 end

@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   before_action :set_one_month, only: :show
   
   def index
-    @users = User.where(activated: true).search(params[:search])
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 20).search(params[:search])
   end
   
   def show
@@ -57,11 +56,6 @@ class UsersController < ApplicationController
       flash[:danger] = "#{@user.name}の更新は失敗しました。<br>" + @user.errors.full_messages.join("<br>")
     end
     redirect_to users_url
-  end
-  
-  def search
-    #Viewのformで取得したパラメータをモデルに渡す
-    @user = User.search(params[:search])
   end
   
   private
