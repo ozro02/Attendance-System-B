@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
+gem 'rounding' #15分単位で丸めるために追加
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
