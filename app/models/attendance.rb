@@ -21,7 +21,7 @@ class Attendance < ApplicationRecord
     end
   end
   
-  def started_at_or_finished_at_is_blank
-    errors.add(:started_at, "時間または退勤時間が必要です") if started_at.blank? || finished_at.blank?
+  def finished_at_is_invalid_without_a_started_at
+    errors.add(:started_at, "が必要です") if started_at.blank? && finished_at.present?
   end
 end
