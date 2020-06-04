@@ -22,7 +22,7 @@ class Attendance < ApplicationRecord
   end
   
   def started_at_is_invalid_without_a_finished_at
-    unless attendance.worked_on = Date.current
+    unless Date.current == worked_on
     errors.add(:finished_at, "が必要です") if started_at.present? && finished_at.blank? 
     end
   end
